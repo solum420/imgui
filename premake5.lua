@@ -3,6 +3,7 @@ project "ImGui"
     language "C++"
     staticruntime "off"
     warnings "off"
+    toolset "clang"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
