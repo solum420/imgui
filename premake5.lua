@@ -19,7 +19,16 @@ project "ImGui"
         "imgui_demo.cpp",
         "imstb_rectpack.h",
         "imstb_textedit.h",
-        "imstb_truetype.h"
+        "imstb_truetype.h",
+
+        "backends/imgui_impl_glfw.cpp",
+        "backends/imgui_impl_opengl3.cpp"
+    }
+
+    includedirs {
+        ".",
+        "backends",
+        "../GLFW/include" -- HACK (?)
     }
 
     filter "system:windows"
