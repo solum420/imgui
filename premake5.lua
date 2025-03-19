@@ -1,8 +1,8 @@
 project "ImGui"
     kind "StaticLib"
     language "C++"
-    staticruntime "off"
-    warnings "off"
+    cppdialect "C++20"
+    staticruntime "on"
     toolset "clang"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -20,7 +20,6 @@ project "ImGui"
         "imstb_rectpack.h",
         "imstb_textedit.h",
         "imstb_truetype.h",
-
         "backends/imgui_impl_glfw.cpp",
         "backends/imgui_impl_opengl3.cpp"
     }
@@ -28,22 +27,20 @@ project "ImGui"
     includedirs {
         ".",
         "backends",
-        "../GLFW/include" -- HACK (?)
+        "../GLFW/include"
     }
 
     filter "system:windows"
         systemversion "latest"
-        cppdialect "C++20"
 
     filter "configurations:Debug"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         runtime "Release"
         optimize "Speed"
-
+        
     filter "configurations:Dist"
         runtime "Release"
         optimize "Speed"
-        symbols "Off"
